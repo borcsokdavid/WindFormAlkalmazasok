@@ -20,11 +20,15 @@ namespace Hoppgomb
         private void button1_Click(object sender, EventArgs e)
         {
             label3.Visible = false;
-            int maxszelesseg = this.Size.Width - button1.Size.Width - 10;
-            int maxmagassag = this.Size.Width - button1.Size.Width - 10;
-            if (int.Parse(textBox1.Text) <= maxszelesseg && int.Parse(textBox2.Text) <= maxmagassag)
+            int szelesseg = this.Size.Width - button1.Width - 10;
+            int magassag = this.Size.Height - button1.Height - 10;
+            Random rnd = new Random();
+            int x = rnd.Next(szelesseg);
+            int y = rnd.Next(magassag);
+            button1.Location = new Point(x, y);
+            if (int.Parse(textBox1.Text) <= szelesseg && int.Parse(textBox2.Text) <= magassag)
             {
-                button1.Location = new Point(int.Parse(textBox1.Text), int.Parse(textBox2.Text));
+                button1.Location = new Point(x, y);
             }
             else
             {
